@@ -40,7 +40,7 @@ function Index() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
-      <main className="pb-24 md:pb-0">
+      <main className="flex flex-col pb-24 md:pb-0">
         <Hero />
         <About />
         <Services />

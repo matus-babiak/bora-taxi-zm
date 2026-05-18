@@ -33,9 +33,9 @@ export function Contact() {
   }, []);
 
   return (
-    <section id="kontakt" className="bg-[var(--ink)] py-14 text-white sm:py-20">
-      <div className="mx-auto flex max-w-[1140px] flex-col gap-10 px-4 sm:gap-14 sm:px-5 lg:flex-row lg:items-stretch lg:gap-20">
-        <div className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col justify-center">
+    <section id="kontakt" className="relative isolate overflow-hidden bg-[var(--ink)] py-14 text-white sm:py-20">
+      <div className="mx-auto grid max-w-[1140px] gap-10 px-4 sm:gap-14 sm:px-5 lg:grid-cols-2 lg:items-start lg:gap-20">
+        <div className="min-w-0">
           <div ref={leftRef} className="min-w-0">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">Kontakt</p>
           <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
@@ -91,7 +91,7 @@ export function Contact() {
         </div>
 
         <div
-          className="relative w-full min-w-0 shrink-0 lg:min-h-0 lg:flex-1 lg:basis-0"
+          className="relative min-w-0 w-full lg:min-h-[280px]"
           style={photoMinHeight != null ? { minHeight: photoMinHeight } : undefined}
         >
           <img

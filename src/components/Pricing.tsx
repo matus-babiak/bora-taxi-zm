@@ -1,4 +1,7 @@
-import { Phone } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, Phone } from "lucide-react";
+
+const MOBILE_INITIAL_ROWS = 12;
 
 const left = [
   ["Prílepy", "4€"],
@@ -68,6 +71,8 @@ const airports = [
   ["Budapešť letisko ✈️", "160€"],
 ];
 
+const allRoutes = [...left, ...right];
+
 function Table({ rows }: { rows: string[][] }) {
   return (
     <div className="border border-border bg-card">
@@ -86,9 +91,49 @@ function Table({ rows }: { rows: string[][] }) {
   );
 }
 
-export function Pricing() {
+function AirportsBlock() {
   return (
-    <section id="cennik" className="bg-background py-14 sm:py-20">
+    <div>
+      <div className="bg-[var(--ink)] px-4 py-3 text-xs font-bold uppercase tracking-wider text-primary">
+        Letiská & dlhé trasy
+      </div>
+      <Table rows={airports} />
+    </div>
+  );
+}
+
+function ShowMoreButton({
+  expanded,
+  onClick,
+}: {
+  expanded: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={expanded}
+      className="mt-3 flex w-full touch-manipulation items-center justify-center gap-2 border border-border bg-muted py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+    >
+      {expanded ? "Zbaliť cenník" : "Rozbaliť cenník"}
+      <ChevronDown
+        className={`size-4 shrink-0 transition-transform ${expanded ? "rotate-180" : ""}`}
+        aria-hidden
+      />
+    </button>
+  );
+}
+
+export function Pricing() {
+  const [mobileExpanded, setMobileExpanded] = useState(false);
+
+  const mobileRows = mobileExpanded ? allRoutes : allRoutes.slice(0, MOBILE_INITIAL_ROWS);
+  const hiddenCount = allRoutes.length - MOBILE_INITIAL_ROWS;
+  const showMobileToggle = hiddenCount > 0;
+
+  return (
+    <section id="cennik" className="relative isolate overflow-hidden bg-background py-14 sm:py-20">
       <div className="mx-auto max-w-[1140px] px-4 sm:px-5">
         <div className="mb-8 max-w-2xl sm:mb-10">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--brand-deep)]">Cenník</p>
@@ -101,16 +146,23 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        {/* Mobile: jedna tabuľka, prvých 12 riadkov + rozbalenie */}
+        <div className="lg:hidden">
+          <Table rows={mobileRows} />
+          {showMobileToggle && (
+            <ShowMoreButton expanded={mobileExpanded} onClick={() => setMobileExpanded((v) => !v)} />
+          )}
+          <div className="mt-6">
+            <AirportsBlock />
+          </div>
+        </div>
+
+        {/* Desktop: dva stĺpce */}
+        <div className="hidden gap-6 lg:grid lg:grid-cols-2">
           <Table rows={left} />
           <div className="flex flex-col gap-6">
             <Table rows={right} />
-            <div>
-              <div className="bg-[var(--ink)] px-4 py-3 text-xs font-bold uppercase tracking-wider text-primary">
-                Letiská & dlhé trasy
-              </div>
-              <Table rows={airports} />
-            </div>
+            <AirportsBlock />
           </div>
         </div>
 

@@ -2,7 +2,7 @@ import sideImg from "@/assets/taxi-side.jpg";
 
 export function About() {
   return (
-    <section id="o-nas" className="bg-background py-14 sm:py-20">
+    <section id="o-nas" className="relative isolate overflow-hidden bg-background py-14 sm:py-20">
       <div className="mx-auto grid max-w-[1140px] items-center gap-8 px-4 sm:gap-12 sm:px-5 md:grid-cols-2">
         <div>
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--brand-deep)]">O nás</p>

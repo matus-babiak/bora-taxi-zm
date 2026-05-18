@@ -121,5 +121,21 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
   }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  main > section {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+  }
   h1, h2, h3, h4 { font-weight: 700; }
+}
+
+@media (max-width: 767px) {
+  .animate-pulse-cta {
+    animation: none;
+    box-shadow: var(--shadow-cta);
+  }
 }

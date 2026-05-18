@@ -51,40 +51,32 @@ const services: {
 
 export function Services() {
   return (
-    <section id="sluzby" className="bg-muted py-14 sm:py-20">
-      {/* Mobile: content first (reverse column); lg: image left, copy right — DOM order unchanged for desktop */}
-      <div className="mx-auto flex max-w-[1140px] flex-col-reverse gap-10 px-4 sm:gap-12 sm:px-5 lg:flex-row lg:items-stretch lg:gap-20">
-        <div className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col justify-center lg:max-w-none">
-          <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft lg:rounded-none lg:border-0 lg:bg-transparent lg:shadow-none">
+    <section id="sluzby" className="relative isolate overflow-hidden bg-muted py-14 sm:py-20">
+      <div className="mx-auto max-w-[1140px] px-4 sm:px-5">
+        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="min-w-0 order-2 overflow-hidden border border-border shadow-soft lg:order-1">
             <img
               src={airportImg}
               alt="BoRa TAXI na letisku"
-              className="aspect-[16/10] w-full object-cover sm:aspect-[5/3] lg:aspect-auto lg:h-auto lg:object-contain lg:object-center"
+              className="static block h-auto w-full -mt-[5px] object-contain"
             />
           </div>
-        </div>
 
-        <div className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col justify-center">
-          <div className="min-w-0">
+          <div className="min-w-0 order-1 lg:order-2">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--brand-deep)]">Služby</p>
             <h2 className="text-2xl font-bold text-balance sm:text-3xl md:text-4xl">
               Odvezieme vás <span className="text-primary">kamkoľvek</span>
             </h2>
 
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-5">
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4">
               {services.map((s) => (
                 <div
                   key={s.title}
-                  className="group flex min-w-0 items-start gap-3 border border-border bg-card p-4 shadow-soft transition-colors hover:border-primary sm:flex-col sm:gap-0 sm:p-6 md:transition-transform md:hover:scale-[1.03] md:hover:shadow-brand"
+                  className="group flex min-w-0 flex-col border border-border bg-card p-4 shadow-soft transition-colors hover:border-primary sm:p-5 md:transition-transform md:hover:scale-[1.02] md:hover:shadow-brand"
                 >
-                  <s.icon
-                    className="size-8 shrink-0 text-primary transition-transform group-hover:scale-110 sm:size-9"
-                    strokeWidth={1.5}
-                  />
-                  <div className="min-w-0 flex-1 sm:mt-5 sm:flex-none">
-                    <h3 className="text-base font-bold leading-snug sm:text-lg">{s.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground sm:mt-2">{s.desc}</p>
-                  </div>
+                  <s.icon className="size-8 shrink-0 text-primary sm:size-9" strokeWidth={1.5} />
+                  <h3 className="mt-3 text-base font-bold leading-snug sm:mt-4 sm:text-lg">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
               ))}
             </div>
