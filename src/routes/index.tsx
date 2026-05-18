@@ -1,26 +1,55 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Services } from "@/components/Services";
+import { Pricing } from "@/components/Pricing";
+import { Reviews } from "@/components/Reviews";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+import { CallFab } from "@/components/CallFab";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "BoRa TAXI Zlaté Moravce — Spoľahlivé taxi 0915 750 725" },
+      {
+        name: "description",
+        content:
+          "Taxislužba BoRa TAXI Zlaté Moravce — nové autá, najnižšie ceny, letiská a dlhé trasy. NONSTOP po rezervácii. Volajte 0915 750 725.",
+      },
+      { property: "og:title", content: "BoRa TAXI Zlaté Moravce" },
+      {
+        property: "og:description",
+        content: "Spoľahlivá taxislužba v Zlatých Moravciach. Mesto, okolie, letiská. Volajte 0915 750 725.",
+      },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Pricing />
+        <Reviews />
+        <Contact />
+      </main>
+      <Footer />
+      <CallFab />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
