@@ -37,16 +37,17 @@
   --color-ink: var(--ink);
   --shadow-soft: 0 8px 30px -8px color-mix(in oklab, var(--ink) 18%, transparent);
   --shadow-brand: 0 12px 40px -10px color-mix(in oklab, var(--brand) 55%, transparent);
+  --shadow-cta: 0 12px 40px -10px color-mix(in oklab, var(--cta) 55%, transparent);
 
   --animate-pulse-cta: pulse-cta 2s ease-in-out infinite;
   --animate-fade-up: fade-up 0.6s ease-out both;
 
   @keyframes pulse-cta {
     0%, 100% {
-      box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 60%, transparent);
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--cta) 60%, transparent);
     }
     50% {
-      box-shadow: 0 0 0 14px color-mix(in oklab, var(--brand) 0%, transparent);
+      box-shadow: 0 0 0 14px color-mix(in oklab, var(--cta) 0%, transparent);
     }
   }
   @keyframes fade-up {
@@ -80,6 +81,11 @@
   --brand: oklch(0.78 0.16 211);            /* #03D7F3 */
   --brand-deep: oklch(0.55 0.12 211);       /* #0393A4 */
   --ink: oklch(0.12 0 0);                   /* near black */
+
+  /* CTA tlačidlá (oranžová) — zvyšok UI ostáva modrý brand */
+  --cta: #ff5a36;
+  --cta-hover: #e2421f;
+  --cta-foreground: oklch(0.99 0 0);
 }
 
 .dark {
@@ -104,11 +110,16 @@
 
 @layer base {
   * { border-color: var(--color-border); }
+  html {
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
   h1, h2, h3, h4 { font-weight: 700; }
 }

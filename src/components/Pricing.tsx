@@ -1,3 +1,5 @@
+import { Phone } from "lucide-react";
+
 const left = [
   ["Prílepy", "4€"],
   ["M. n. Žit.", "4€ / 4,50€"],
@@ -72,12 +74,12 @@ function Table({ rows }: { rows: string[][] }) {
       {rows.map(([place, price], i) => (
         <div
           key={place}
-          className={`flex items-center justify-between px-4 py-2.5 text-sm ${
+          className={`flex items-start justify-between gap-2 px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm ${
             i !== rows.length - 1 ? "border-b border-border" : ""
           } transition-colors hover:bg-primary/5`}
         >
-          <span className="text-foreground">{place}</span>
-          <span className="font-semibold tabular-nums text-[var(--brand-deep)]">{price}</span>
+          <span className="max-w-[65%] min-w-0 break-words pr-1 text-foreground sm:max-w-none">{place}</span>
+          <span className="shrink-0 text-right font-semibold tabular-nums text-[var(--brand-deep)]">{price}</span>
         </div>
       ))}
     </div>
@@ -86,15 +88,16 @@ function Table({ rows }: { rows: string[][] }) {
 
 export function Pricing() {
   return (
-    <section id="cennik" className="bg-background py-20">
-      <div className="mx-auto max-w-[1140px] px-5">
-        <div className="mb-10 max-w-2xl">
+    <section id="cennik" className="bg-background py-14 sm:py-20">
+      <div className="mx-auto max-w-[1140px] px-4 sm:px-5">
+        <div className="mb-8 max-w-2xl sm:mb-10">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--brand-deep)]">Cenník</p>
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Mesto od <span className="text-primary">2,50€</span>
+          <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
+            Taxi Zlaté Moravce <span className="text-primary">od 2,50 €</span>
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Žiadne skryté príplatky. Cena, ktorú vidíte, vždy platí.
+            Žiadne skryté príplatky.{" "}
+            <strong className="font-bold text-foreground">Cena, ktorú vidíte, vždy platí.</strong>
           </p>
         </div>
 
@@ -111,10 +114,31 @@ export function Pricing() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-3 border border-border bg-muted p-5 text-sm text-muted-foreground sm:grid-cols-3">
-          <div><strong className="text-foreground">Jedn. sadzba:</strong> 0,80€</div>
-          <div><strong className="text-foreground">Čakanie:</strong> 12€ / hod.</div>
-          <div><strong className="text-foreground">Spiatočná cesta:</strong> 50% zo sadzby</div>
+        <div className="mt-8 grid gap-3 border border-border bg-muted p-4 text-sm leading-relaxed text-muted-foreground sm:grid-cols-3 sm:p-5 sm:text-base">
+          <div>
+            <strong className="text-foreground">Jedn. sadzba:</strong> 0,80€
+          </div>
+          <div>
+            <strong className="text-foreground">Čakanie:</strong> 12€ / hod.
+          </div>
+          <div>
+            <strong className="text-foreground">Spiatočná cesta:</strong> 50% zo sadzby
+          </div>
+        </div>
+
+        <div className="mt-8 flex w-full min-w-0 flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+          <a
+            href="tel:+421915750725"
+            className="group flex min-h-12 w-full min-w-0 flex-1 touch-manipulation items-center justify-center gap-2 bg-[var(--cta)] px-4 py-3.5 text-sm font-bold text-[var(--cta-foreground)] transition-colors animate-pulse-cta hover:bg-[var(--cta-hover)] sm:min-h-[52px] sm:gap-3 sm:px-7 sm:py-4 sm:text-base"
+          >
+            <Phone className="size-5 shrink-0 sm:size-6" /> 0915 750 725
+          </a>
+          <a
+            href="tel:+421910619745"
+            className="flex min-h-12 w-full min-w-0 flex-1 touch-manipulation items-center justify-center gap-2 border-2 border-border bg-background px-4 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-[var(--cta)] hover:bg-[var(--cta)]/10 hover:text-[var(--cta)] sm:min-h-[52px] sm:gap-3 sm:px-7 sm:py-4 sm:text-base"
+          >
+            <Phone className="size-5 shrink-0 sm:size-6" /> 0910 619 745
+          </a>
         </div>
       </div>
     </section>

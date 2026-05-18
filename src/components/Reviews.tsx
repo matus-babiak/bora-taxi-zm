@@ -37,27 +37,27 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section id="recenzie" className="bg-muted py-20">
-      <div className="mx-auto max-w-[1140px] px-5">
-        <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+    <section id="recenzie" className="bg-muted py-14 sm:py-20">
+      <div className="mx-auto max-w-[1140px] px-4 sm:px-5">
+        <div className="mb-8 flex flex-col items-center gap-4 text-center sm:mb-10">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--brand-deep)]">Recenzie</p>
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
               Hodnotenie <span className="text-primary">5 hviezdičiek</span> na Google
             </h2>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center justify-center gap-0.5 sm:gap-1">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="size-6 fill-primary text-primary" />
+              <Star key={i} className="size-5 fill-primary text-primary sm:size-6" />
             ))}
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap content-center justify-center gap-4 sm:gap-5">
           {reviews.map((r) => (
             <article
               key={r.name}
-              className="flex flex-col border border-border bg-card p-6 shadow-soft transition-all hover:scale-[1.02] hover:border-primary"
+              className="flex w-full flex-col border border-border bg-card p-4 shadow-soft transition-all hover:border-primary sm:p-6 md:hover:scale-[1.02] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
             >
               <div className="mb-3 flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
