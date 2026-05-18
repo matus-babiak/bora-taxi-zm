@@ -41,7 +41,7 @@ export function Contact() {
           <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
             Zavolajte <span className="text-primary">teraz</span>
           </h2>
-          <p className="mt-3 text-white/70">Tešíme sa na vás — Vaše BoRa TAXI Zlaté Moravce.</p>
+          <p className="mt-3 text-white/70">Tešíme sa na vás. Váš BoRa TAXI Zlaté Moravce.</p>
 
           <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:gap-4">
             <a
