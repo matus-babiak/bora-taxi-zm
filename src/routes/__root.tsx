@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: OG_DESCRIPTION },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "BoRa TAXI Zlaté Moravce" },
+      { name: "twitter:title", content: "BoRa TAXI Zlaté Moravce — Spoľahlivé taxi" },
       { name: "twitter:description", content: OG_DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
     ],

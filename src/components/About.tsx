@@ -19,7 +19,7 @@ export function About() {
           <div className="mt-8 grid min-w-0 grid-cols-3 gap-2 sm:gap-4">
             <Metric value="5★" label="Google recenzie" />
             <Metric value="NONSTOP" label="k dispozícii" />
-            <Metric value="2,50€" label="Od ceny v meste" />
+            <Metric value="2,50 €" label="Od ceny v meste" />
           </div>
         </div>
         <div className="border border-border shadow-soft">

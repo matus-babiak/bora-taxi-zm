@@ -47,8 +47,10 @@ export function Navbar() {
           <Phone className="size-4" /> 0915 750 725
         </a>
         <button
-          aria-label="Menu"
           type="button"
+          aria-label={open ? "Zavrieť menu" : "Otvoriť menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
           onClick={() => setOpen(!open)}
           className="-mr-1 touch-manipulation p-2 md:hidden"
         >
@@ -57,7 +59,11 @@ export function Navbar() {
       </div>
       {open && (
         <div className="border-t border-border bg-background md:hidden">
-          <nav className="mx-auto flex max-h-[min(70vh,calc(100dvh-3.5rem))] max-w-[1140px] flex-col overflow-y-auto overscroll-contain px-4 py-3 sm:px-5">
+          <nav
+            id="mobile-nav"
+            aria-label="Hlavná navigácia"
+            className="mx-auto flex max-h-[min(70vh,calc(100dvh-3.5rem))] max-w-[1140px] flex-col overflow-y-auto overscroll-contain px-4 py-3 sm:px-5"
+          >
             {links.map((l) => (
               <a
                 key={l.href}

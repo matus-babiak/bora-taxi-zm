@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, Phone } from "lucide-react";
+import { formatEuro } from "@/lib/format-euro";
 
 const MOBILE_INITIAL_ROWS = 12;
 
@@ -85,7 +86,9 @@ function Table({ rows }: { rows: string[][] }) {
           } transition-colors hover:bg-primary/5`}
         >
           <span className="max-w-[65%] min-w-0 break-words pr-1 text-foreground sm:max-w-none">{place}</span>
-          <span className="shrink-0 text-right font-semibold tabular-nums text-[var(--brand-deep)]">{price}</span>
+          <span className="shrink-0 text-right font-semibold tabular-nums text-[var(--brand-deep)]">
+            {formatEuro(price)}
+          </span>
         </div>
       ))}
     </div>
@@ -115,6 +118,7 @@ function ShowMoreButton({
       type="button"
       onClick={onClick}
       aria-expanded={expanded}
+      aria-controls="pricing-cennik-mobile"
       className="mt-3 flex w-full touch-manipulation items-center justify-center gap-2 border border-border bg-muted py-3.5 text-base font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
     >
       {expanded ? "Zbaliť cenník" : "Rozbaliť cenník"}
@@ -148,7 +152,7 @@ export function Pricing() {
         </div>
 
         {/* Mobile: jedna tabuľka, prvých 12 riadkov + rozbalenie */}
-        <div className="lg:hidden">
+        <div id="pricing-cennik-mobile" className="lg:hidden">
           <Table rows={mobileRows} />
           {showMobileToggle && (
             <ShowMoreButton expanded={mobileExpanded} onClick={() => setMobileExpanded((v) => !v)} />
@@ -169,10 +173,10 @@ export function Pricing() {
 
         <div className="mt-8 grid gap-3 border border-border bg-muted p-4 text-sm leading-relaxed text-muted-foreground sm:grid-cols-3 sm:p-5 sm:text-base">
           <div>
-            <strong className="text-foreground">Jedn. sadzba:</strong> 0,80€
+            <strong className="text-foreground">Jedn. sadzba:</strong> {formatEuro("0,80€")}
           </div>
           <div>
-            <strong className="text-foreground">Čakanie:</strong> 12€ / hod.
+            <strong className="text-foreground">Čakanie:</strong> {formatEuro("12€ / hod.")}
           </div>
           <div>
             <strong className="text-foreground">Spiatočná cesta:</strong> 50% zo sadzby

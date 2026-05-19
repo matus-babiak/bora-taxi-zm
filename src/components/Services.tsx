@@ -13,7 +13,7 @@ const services: {
     desc: (
       <>
         <strong className="font-bold text-foreground">Rýchle a pohodlné jazdy</strong> po Zlatých Moravciach od
-        2,50€.
+        2,50 €.
       </>
     ),
   },
@@ -22,7 +22,7 @@ const services: {
     title: "Letiská",
     desc: (
       <>
-        Bratislava 100€, Viedeň 160€, Budapešť 160€.{" "}
+        Bratislava 100 €, Viedeň 160 €, Budapešť 160 €.{" "}
         <strong className="font-bold text-foreground">Najvýhodnejšie ceny.</strong>
       </>
     ),
