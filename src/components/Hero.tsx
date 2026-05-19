@@ -1,5 +1,5 @@
 import { Phone, Zap, Route, Infinity as InfinityIcon } from "lucide-react";
-import heroImg from "@/assets/taxi-hero.jpg";
+import heroImg from "@/assets/bora-taxi-auta-toyota.webp";
 
 export function Hero() {
   return (
@@ -38,8 +38,8 @@ export function Hero() {
 
           <div className="mt-8 flex flex-nowrap gap-2 overflow-x-auto overscroll-x-contain pb-2 [-webkit-overflow-scrolling:touch] sm:mt-10 sm:gap-3 sm:overflow-visible sm:pb-0">
             <Stat icon={<Zap className="size-4 sm:size-5" />} label="Rýchle vyzdvihnutie" />
-            <Stat icon={<Route className="size-4 sm:size-5" />} label="ZM & dlhé trasy" />
-            <Stat icon={<InfinityIcon className="size-4 sm:size-5" />} label="NONSTOP" />
+            <Stat icon={<Route className="size-4 sm:size-5" />} label="Mesto & dlhé trasy" />
+            <Stat icon={<InfinityIcon className="size-4 sm:size-5" />} label="Nonstop 24/7" />
           </div>
         </div>
       </div>

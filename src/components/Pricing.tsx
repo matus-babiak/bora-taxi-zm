@@ -6,32 +6,32 @@ const MOBILE_INITIAL_ROWS = 12;
 const left = [
   ["Zlaté Moravce", "od 2,50 €"],
   ["Prílepy", "4€"],
-  ["M. n. Žit.", "4€ / 4,50€"],
+  ["Martin nad Žitavou", "4€ / 4,50€"],
   ["Žitavany", "4,50€"],
   ["Machulince", "5,50€"],
-  ["Č. Dolina", "5,50€"],
-  ["Č. Klačany", "6€"],
+  ["Čierna Dolina", "5,50€"],
+  ["Čierne Klačany", "6€"],
   ["Sľažany", "6€ / 6,50€"],
   ["Hosťovce", "6,50€"],
   ["Topoľčianky", "6€ / 6,50€ / 7€"],
-  ["T. Mlyňany", "6€ / 6,50€ / 7€"],
+  ["Tesárske Mlyňany", "6€ / 6,50€ / 7€"],
   ["Olichov", "7,50€"],
   ["Obyce", "7,50€ / 8€"],
   ["Mankovce", "9€"],
-  ["V. Vozokany", "9€"],
-  ["Vieska n. Žit.", "9€"],
+  ["Veľké Vozokany", "9€"],
+  ["Vieska nad Žitavou", "9€"],
   ["Voľkovce", "9,50€"],
-  ["M. Vozokany", "10€"],
-  ["Veľčice", "10€"],
+  ["Malé Vozokany", "10€"],
+  ["Velčice", "10€"],
   ["Lovce", "10€"],
   ["Žikava", "10€"],
-  ["Hosťie", "10€ / 10,50€"],
+  ["Hostie", "10€ / 10,50€"],
   ["Slepčany", "10,50€"],
   ["Choča", "10,50€"],
   ["Nemčiňany", "10,50€"],
   ["Čaradice", "10,50€"],
-  ["Nevrlice", "11€"],
-  ["Č. Hrádok", "11€"],
+  ["Neverice", "11€"],
+  ["Červený Hrádok", "11€"],
   ["Tekovské Nemce", "12€"],
   ["Nevidzany", "12€"],
   ["Kozárovce", "12€ / 12,50€"],
@@ -41,22 +41,22 @@ const right = [
   ["Zlatno", "12,50€"],
   ["Beladice", "13€"],
   ["Ladice", "13,50€"],
-  ["N. V. n. Žit.", "13,50€ / 14€"],
-  ["B. Chrášťany", "14€"],
-  ["B. McDonalds", "14€"],
+  ["Nová Ves nad Žitavou", "13,50€ / 14€"],
+  ["Beladice, Chrášťany", "14€"],
+  ["Beladice, McDonalds", "14€"],
   ["Skýcov", "14€"],
-  ["Jd. Kostoľany", "14,50€"],
+  ["Jedľové Kostoľany", "14,50€"],
   ["Jelenec", "14,50€"],
-  ["H. Beňadik", "15€"],
-  ["K. p. Tríbečom", "16€"],
-  ["M. V. Chyndice", "16€ / 17€"],
+  ["Hronský Beňadik", "15€"],
+  ["Kostoľany pod Tribečom", "16€"],
+  ["Malé / Veľké Chyndice", "16€ / 17€"],
   ["Vráble", "17€"],
-  ["Čeladice", "17€"],
+  ["Čeľadice", "17€"],
   ["Tlmače", "17€"],
   ["Lipník", "17€"],
   ["Kolíňany", "18€"],
   ["Pohranice", "20,50€"],
-  ["M. V. Lehota", "21€ / 22€"],
+  ["Malá / Veľká Lehota", "21€ / 22€"],
   ["Nová Baňa", "25€"],
   ["Levice", "27€"],
   ["Nitra", "27€"],
@@ -80,7 +80,7 @@ function Table({ rows }: { rows: string[][] }) {
       {rows.map(([place, price], i) => (
         <div
           key={place}
-          className={`flex items-start justify-between gap-2 px-3 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm ${
+          className={`flex items-start justify-between gap-2 px-3 py-2.5 text-sm leading-snug sm:px-4 sm:py-3 sm:text-base ${
             i !== rows.length - 1 ? "border-b border-border" : ""
           } transition-colors hover:bg-primary/5`}
         >
@@ -95,7 +95,7 @@ function Table({ rows }: { rows: string[][] }) {
 function AirportsBlock() {
   return (
     <div>
-      <div className="bg-[var(--ink)] px-4 py-3 text-xs font-bold uppercase tracking-wider text-primary">
+      <div className="bg-[var(--ink)] px-4 py-3 text-sm font-bold uppercase tracking-wider text-primary sm:text-base">
         Letiská & dlhé trasy
       </div>
       <Table rows={airports} />
@@ -115,7 +115,7 @@ function ShowMoreButton({
       type="button"
       onClick={onClick}
       aria-expanded={expanded}
-      className="mt-3 flex w-full touch-manipulation items-center justify-center gap-2 border border-border bg-muted py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+      className="mt-3 flex w-full touch-manipulation items-center justify-center gap-2 border border-border bg-muted py-3.5 text-base font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
     >
       {expanded ? "Zbaliť cenník" : "Rozbaliť cenník"}
       <ChevronDown

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Phone, Instagram, Facebook, MapPin } from "lucide-react";
-import heroImg from "@/assets/taxi-hero.jpg";
+import contactImg from "@/assets/bora-taxi-auta-toyota.webp";
 
 const LEFT_COLUMN_TALLER_RATIO = 1.15;
 
@@ -95,7 +95,7 @@ export function Contact() {
           style={photoMinHeight != null ? { minHeight: photoMinHeight } : undefined}
         >
           <img
-            src={heroImg}
+            src={contactImg}
             alt="BoRa TAXI Zlaté Moravce"
             className="block h-auto w-full max-w-full object-contain object-center lg:absolute lg:inset-0 lg:h-full lg:max-w-none lg:object-right"
           />

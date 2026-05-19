@@ -9,6 +9,12 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import favicon from "@/assets/bora-taxi-auta-toyota.webp";
+
+const SITE_URL = "https://borataxi.matusbabiak.sk";
+const OG_IMAGE = `${SITE_URL}/bora-taxi-auta-toyota.webp`;
+const OG_DESCRIPTION =
+  "Spoľahlivá taxislužba v Zlatých Moravciach. Mesto, okolie, letiská. Volajte 0915 750 725.";
 
 function NotFoundComponent() {
   return (
@@ -72,20 +78,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "BoRa Taxi ZM provides reliable taxi services in Zlaté Moravce and surrounding areas." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "BoRa Taxi ZM provides reliable taxi services in Zlaté Moravce and surrounding areas." },
+      { title: "BoRa TAXI Zlaté Moravce — Spoľahlivé taxi 0915 750 725" },
+      {
+        name: "description",
+        content:
+          "Taxislužba BoRa TAXI Zlaté Moravce — nové autá, najnižšie ceny, letiská a dlhé trasy. NONSTOP po rezervácii. Volajte 0915 750 725.",
+      },
+      { name: "author", content: "BoRa TAXI" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "BoRa Taxi ZM provides reliable taxi services in Zlaté Moravce and surrounding areas." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fa2f6fc5-9f2c-4c19-81b2-6e6de7e36156/id-preview-a6a6b04d--b1969f4d-e0ca-45e6-b4b5-badfadb673d9.lovable.app-1779121620870.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fa2f6fc5-9f2c-4c19-81b2-6e6de7e36156/id-preview-a6a6b04d--b1969f4d-e0ca-45e6-b4b5-badfadb673d9.lovable.app-1779121620870.png" },
+      { property: "og:title", content: "BoRa TAXI Zlaté Moravce" },
+      { property: "og:description", content: OG_DESCRIPTION },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "BoRa TAXI Zlaté Moravce" },
+      { name: "twitter:description", content: OG_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
+      { rel: "icon", type: "image/webp", href: favicon },
+      { rel: "apple-touch-icon", href: favicon },
       {
         rel: "stylesheet",
         href: appCss,
@@ -100,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sk">
       <head>
         <HeadContent />
       </head>

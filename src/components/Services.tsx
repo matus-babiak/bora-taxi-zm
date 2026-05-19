@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Car, Plane, Route, ShoppingBag, Phone } from "lucide-react";
-import airportImg from "@/assets/taxi-airport.jpg";
+import airportImg from "@/assets/bora-taxi-letisko-bratislava.webp";
 
 const services: {
   icon: typeof Car;
@@ -57,7 +57,7 @@ export function Services() {
           <div className="min-w-0 order-2 overflow-hidden border border-border shadow-soft lg:order-1">
             <img
               src={airportImg}
-              alt="BoRa TAXI na letisku"
+              alt="BoRa TAXI na letisku Bratislava"
               className="static block h-auto w-full -mt-[5px] object-contain"
             />
           </div>

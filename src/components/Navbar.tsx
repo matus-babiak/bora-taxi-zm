@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import { scrollToTop } from "@/lib/scroll";
 
 const links = [
   { href: "#o-nas", label: "O nás" },
@@ -11,13 +12,23 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+
+  const handleLogoClick = () => {
+    scrollToTop(true);
+    setOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/70 backdrop-blur-lg supports-[backdrop-filter]:bg-background/80">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/90">
       <div className="mx-auto flex h-14 max-w-[1140px] items-center justify-between gap-3 px-4 sm:h-16 sm:px-5">
-        <a href="#top" className="flex min-w-0 items-center gap-2 text-base font-bold tracking-tight sm:text-lg">
-          <span className="bg-primary px-2 py-0.5 text-primary-foreground">BoRa</span>
-          <span>TAXI ZM</span>
-        </a>
+        <button
+          type="button"
+          onClick={handleLogoClick}
+          className="flex min-w-0 items-center gap-1.5 text-left text-sm font-bold leading-tight tracking-tight sm:gap-2 sm:text-lg"
+        >
+          <span className="shrink-0 bg-primary px-2 py-0.5 text-primary-foreground">BoRa</span>
+          <span className="text-[11px] leading-tight sm:text-lg">TAXI Zlaté Moravce</span>
+        </button>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <a

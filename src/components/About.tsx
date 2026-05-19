@@ -1,4 +1,4 @@
-import sideImg from "@/assets/taxi-side.jpg";
+import sideImg from "@/assets/bora-taxi-zlate-moravce.webp";
 
 export function About() {
   return (

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
+import { useScrollRestoration } from "@/hooks/use-scroll-restoration";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
@@ -11,19 +12,6 @@ import { CallFab } from "@/components/CallFab";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "BoRa TAXI Zlaté Moravce — Spoľahlivé taxi 0915 750 725" },
-      {
-        name: "description",
-        content:
-          "Taxislužba BoRa TAXI Zlaté Moravce — nové autá, najnižšie ceny, letiská a dlhé trasy. NONSTOP po rezervácii. Volajte 0915 750 725.",
-      },
-      { property: "og:title", content: "BoRa TAXI Zlaté Moravce" },
-      {
-        property: "og:description",
-        content: "Spoľahlivá taxislužba v Zlatých Moravciach. Mesto, okolie, letiská. Volajte 0915 750 725.",
-      },
-    ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -37,10 +25,12 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  useScrollRestoration();
+
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="flex flex-col pb-24 md:pb-0">
+      <main className="flex flex-col pt-14 pb-24 sm:pt-16 md:pb-0">
         <Hero />
         <About />
         <Services />
