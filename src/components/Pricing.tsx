@@ -4,6 +4,7 @@ import { ChevronDown, Phone } from "lucide-react";
 const MOBILE_INITIAL_ROWS = 12;
 
 const left = [
+  ["Zlaté Moravce", "od 2,50 €"],
   ["Prílepy", "4€"],
   ["M. n. Žit.", "4€ / 4,50€"],
   ["Žitavany", "4,50€"],
